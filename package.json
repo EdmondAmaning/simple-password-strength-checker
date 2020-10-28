@@ -1,9 +1,11 @@
 {
-  "name": "password-strength-checker",
+  "name": "@edmondamaning/password-strength-checker",
   "version": "0.0.1",
   "description": "A simple way to customise pre check for passwords client or server side. Passwords strength can be check whilst typing and passwords can be validated before being sent to the server or on the server when submitted.",
   "main": "index.js",
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -14,5 +16,13 @@
     "validator"
   ],
   "author": "Edmond Amaning",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EdmondAmaning/password-strength-checker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/EdmondAmaning/password-strength-checker/issues"
+  },
+  "homepage": "https://github.com/EdmondAmaning/password-strength-checker#readme"
 }
