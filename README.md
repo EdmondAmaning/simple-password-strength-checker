@@ -4,7 +4,7 @@ A simple way to customise pre check for passwords client or server side. Passwor
 
 <h1>Install</h1>
 <pre>
-npm install password-strength-checker --save
+npm install simple-password-strength-checker --save
 </pre>
 
 <h1>Config</h1>
