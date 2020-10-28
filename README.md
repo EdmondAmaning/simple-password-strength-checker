@@ -1,4 +1,4 @@
-<h1>Password Strength Checker</h1>
+<h1>Simple Password Strength Checker</h1>
 
 Validate passwords and check password strengths with custom parameters.
 
