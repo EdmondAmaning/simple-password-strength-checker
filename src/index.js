@@ -64,7 +64,7 @@ module.exports = function spsc(password, type = 'validate', options) {
 
     if(type === 'strength'){
         let strengthStep = strength(setup)
-        let _strength = 0;
+        let _strength = strengthStep;
 
         if(setup.banned.words.includes(password)){return 0}
         if(setup.strict.dataTypes.includes('string')){if(validate(password, 'strict-dataType-string', setup)){ _strength = (_strength + strengthStep)}}
