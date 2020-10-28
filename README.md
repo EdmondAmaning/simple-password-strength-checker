@@ -253,6 +253,33 @@ spsc('MyPassword', type, config)
 import React, { Component }       from "react";
 import spsc                       from "simple-password-strength-checker"
 
+const config = {
+    size: {
+        min: 8,
+        msg: {
+            min: 'Password must have at least 8 characters'
+        }
+    },
+    uppercase: {
+        min: 1,
+        msg: {
+            min: 'Password must have at least 1 upper case character'
+        }
+    },
+    number: {
+        min: 1,
+        msg: {
+            min: 'Password must have at least 1 number'
+        }
+    },
+    symbol: {
+        min: 1,
+        msg: {
+            min: 'Password must have at least 1 symbol'
+        }
+    }
+}
+
 class Main extends Component {
     constructor(props) {
         super(props);
@@ -264,32 +291,7 @@ class Main extends Component {
     }
     
     passwordCheck(password, type){
-        var strength = spsc(password, type, {
-            size: {
-                min: 8,
-                msg: {
-                    min: 'Password must have at least 8 characters'
-                }
-            },
-            uppercase: {
-                min: 1,
-                msg: {
-                    min: 'Password must have at least 1 upper case character'
-                }
-            },
-            number: {
-                min: 1,
-                msg: {
-                    min: 'Password must have at least 1 number'
-                }
-            },
-            symbol: {
-                min: 1,
-                msg: {
-                    min: 'Password must have at least 1 symbol'
-                }
-            }
-        })
+        var strength = spsc(password, type, config)
         
         if(type === 'validate' && strength.status === 'error'){
             alert(strength.msg) // { status: 'error', msg: 'THE ERROR MESSAGE'}
