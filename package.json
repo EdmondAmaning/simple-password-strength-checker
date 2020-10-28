@@ -10,6 +10,11 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
+    "ReactJS",
+    "NodeJS",
+    "ExpressJS",
+    "react",
+    "react-component",
     "password",
     "strength",
     "checker",

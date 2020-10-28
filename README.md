@@ -1,6 +1,6 @@
 <h1>Simple Password Strength Checker</h1>
 
-Validate passwords and check password strengths with custom parameters. Can be used with ReactJS, jQuery, NodeJS and plain JavaScript.
+Validate passwords and check password strengths with custom parameters.
 
 <h1>Install</h1>
 <pre>
@@ -292,8 +292,7 @@ class Main extends Component {
         })
         
         if(type === 'validate' && strength.status === 'error'){
-            alert(strength.msg)
-            // { status: 'error', msg: 'THE ERROR MESSAGE'}
+            alert(strength.msg) // { status: 'error', msg: 'THE ERROR MESSAGE'}
             return
         }
 
@@ -340,81 +339,50 @@ class Main extends Component {
 }
 ```
 
+<h3>NodeJS</h3>
+
 ```javascript
+const spsc  = require('simple-password-strength-checker')
+
+var password = ''
+
 const config = {
     size: {
-            min: 8,
-            msg: {
-                min: 'Password must be at least 8 characters long',
-            }
-        },
-        lowercase: {
-            min: 1,
-            msg: {
-                min: 'Password must contain at least 1 lower case character',
-            }
-        },
-        uppercase: {
-            min: 1,
-            msg: {
-                min: 'Password must contain at least 1 upper case character',
-            }
-        },
-        number: {
-            min: 1,
-            msg: {
-                min: 'Password must contain at least 1 digit',
-            }
-        },
-        symbol: {
-            min: 1,
-            msg: {
-                min: 'Password must contain at least 1 symbol',
-            }
+        min: 8,
+        msg: {
+            min: 'Password must have at least 8 characters'
+        }
+    },
+    uppercase: {
+        min: 1,
+        msg: {
+            min: 'Password must have at least 1 upper case character'
+        }
+    },
+    number: {
+        min: 1,
+        msg: {
+            min: 'Password must have at least 1 number'
+        }
+    },
+    symbol: {
+        min: 1,
+        msg: {
+            min: 'Password must have at least 1 symbol'
         }
     }
 }
 
-spsc('MyPassword', 'validate', config) // return { status: 'error', msg: 'Password must be at least 8 characters long' }
+var validate = spsc(password, 'validate', config)
 
-spsc('MyPass', 'strength', config) // return 0.6
-
-```
-
-<h1>Return</h1>
-
-<h3>validate</h3>
-
-```javascript
-spsc('MyPassword', 'validate', config)
-
-//success
-{
-    status: 'success'
+if(validate.status === 'error'){
+    console.log(validate.msg) // { status: 'error', msg: 'Password must have at least 1 number'}
+    return
 }
 
-//error
-{
-    status: 'error',
-    msg: 'Password must be at least 8 character long'
-}
-```
+var strength = spec(password, 'strength', config)
 
-<h3>strength</h3>
-<div>Value will be between <code>0</code> and <code>1</code> (0 = weak, 1 = strong). You can add custom password strengths based on the users key press.</div>
 
-```javascript
-const res = spsc('MyPassword', 'strength', config)
+console.log(strength) // 0.5
 
-if(res <= .5){
-    return 'Weak password'
-}
-
-if(res < 1){
-    return 'Average password'
-}
-
-if(res == 1){
-    return 'Strong password'
-}
 ```
