@@ -196,7 +196,8 @@ npm install simple-password-strength-checker --save
         </tr>
     </tbody>
 </table>
-<br/><br/>
+
+
 ```javascript
 const config = {
     banned: {
