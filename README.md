@@ -384,7 +384,6 @@ if(validate.status === 'error'){
 
 var strength = spec(password, 'strength', config)
 
-
 console.log(strength) // 0.5
 
 ```
