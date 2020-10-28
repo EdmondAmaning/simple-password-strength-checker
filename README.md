@@ -346,7 +346,7 @@ class Main extends Component {
 ```javascript
 const spsc  = require('simple-password-strength-checker')
 
-var password = ''
+var password = 'MySecretPassword'
 
 const config = {
     size: {
