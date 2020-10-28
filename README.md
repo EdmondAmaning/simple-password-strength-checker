@@ -13,9 +13,9 @@ npm install simple-password-strength-checker --save
 <table>
     <thead>
         <tr>
-            <td>Setting</td>
-            <td>Default</td>
-            <td>Description</td>
+            <td><b>Setting</b></td>
+            <td><b>Default</b></td>
+            <td><b>Description</b></td>
         </tr>
     </thead>
     <tbody>
@@ -31,10 +31,10 @@ npm install simple-password-strength-checker --save
 <table>
     <thead>
         <tr>
-            <td>Setting</td>
-            <td>type</td>
-            <td>Default</td>
-            <td>Description</td>
+            <td><b>Setting</b></td>
+            <td><b>Type</b></td>
+            <td><b>Default</b></td>
+            <td><b>Description</b></td>
         </tr>
     </thead>
     <tbody>

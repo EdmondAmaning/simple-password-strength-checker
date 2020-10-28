@@ -1,6 +1,6 @@
 {
   "name": "simple-password-strength-checker",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Validate passwords and check password strengths with custom parameters.",
   "main": "index.js",
   "publishConfig": {
