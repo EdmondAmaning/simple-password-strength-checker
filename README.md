@@ -1,6 +1,6 @@
 <h1>Simple Password Strength Checker</h1>
 
-Validate passwords and check password strengths with custom parameters.
+Validate passwords and check password strengths with custom parameters. Can be used with ReactJS, jQuery, NodeJS and plain JavaScript.
 
 <h1>Install</h1>
 <pre>
@@ -10,22 +10,9 @@ npm install simple-password-strength-checker --save
 <h1>Config</h1>
 
 <h3>Type</h3>
-<table>
-    <thead>
-        <tr>
-            <td><b>Setting</b></td>
-            <td><b>Default</b></td>
-            <td><b>Description</b></td>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>type</td>
-            <td><code>validate</code></td>
-            <td>Options: <code>validate</code>, <code>strength</code>.<br/><br/><code>validate</code> returns an object.<br/><br/><code>strength</code> returns an number between 0 - 1.</td>
-        </tr>
-    </tbody>
-</table>
+<code>validate</code><br/>validate is used to check the password, size, lower case, upper case, number and symbol count.  It is also used to check the passwords data type. This is the deafault.
+<br/><br/>
+<code>strength</code><br/>strength is used to check the quality of the password returning a number between 0 (poor) and 1 (good).
 
 <h3>Config</h3>
 <table>
@@ -260,6 +247,95 @@ spsc('MyPassword', type, config)
 ```
 
 <h1>Usage</h1>
+<h3>ReactJS</h3>
+
+```javascript
+import React, { Component }       from "react";
+import spsc                       from "simple-password-strength-checker"
+
+class Main extends Component {
+    constructor(props) {
+    super(props);
+    this.state = {
+        color: '',
+        strength: ''
+    }
+    
+    passwordCheck(password, type){
+        var strength = spsc(password, type, {
+            size: {
+                min: 8,
+                msg: {
+                    min: 'Password must have at least 8 characters'
+                }
+            },
+            uppercase: {
+                min: 1,
+                msg: {
+                    min: 'Password must have at least 1 upper case character'
+                }
+            },
+            number: {
+                min: 1,
+                msg: {
+                    min: 'Password must have at least 1 number'
+                }
+            },
+            symbol: {
+                min: 1,
+                msg: {
+                    min: 'Password must have at least 1 symbol'
+                }
+            }
+        })
+        
+        if(type === 'validate' && strength.status === 'error'){
+            alert(strength.msg)
+            return
+        }
+
+        if(strength <= 0 || password.length === 0){
+            this.setState({
+                color: '',
+                strength: ''
+            })
+        } else if(strength <= .5){
+            this.setState({
+                color: 'red',
+                strength: 'Weak password'
+            })
+        } else if(strength < 1){
+            this.setState({
+                color: 'orange',
+                strength: 'Average password'
+            })
+        } else if(strength === 1){
+            this.setState({
+                color: 'green',
+                strength: 'Strong password'
+            })
+        }
+    }
+    
+    hC(e, a){
+        this.setState({
+            [a]: e.target.value
+        })
+    }
+    
+    render(){
+        const _ = this.state
+        return (
+            <>
+                <input name="password" type="password" value={_.password} onChange={(e)=>{this.passwordCheck(e.target.value, 'strength'); this.hC(e, 'password')}} />
+                <div className={_.color}>{_.strength}</div>
+                
+                <button onClick={()=>{this.passwordCheck(_.password, 'validate')}}>Submit</button>
+            </>
+        )
+    }
+}
+```
 
 ```javascript
 const config = {
