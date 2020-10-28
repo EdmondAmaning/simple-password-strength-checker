@@ -255,10 +255,12 @@ import spsc                       from "simple-password-strength-checker"
 
 class Main extends Component {
     constructor(props) {
-    super(props);
-    this.state = {
-        color: '',
-        strength: ''
+        super(props);
+        this.state = {
+            password: '',
+            color: '',
+            strength: ''
+        }
     }
     
     passwordCheck(password, type){
@@ -291,6 +293,7 @@ class Main extends Component {
         
         if(type === 'validate' && strength.status === 'error'){
             alert(strength.msg)
+            // { status: 'error', msg: 'THE ERROR MESSAGE'}
             return
         }
 
