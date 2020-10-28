@@ -1,5 +1,5 @@
 'use strict';
 
-const passwordStrengthChecker = require('./src')
+const spsc = require('./src')
 
-module.exports = passwordStrengthChecker
+module.exports = spsc

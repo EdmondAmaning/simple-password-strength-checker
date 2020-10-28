@@ -1,6 +1,6 @@
 <h1>Password Strength Checker</h1>
 
-A simple way to customise pre check for passwords client or server side. Passwords strength can be check whilst typing and passwords can be validated before being sent to the server or on the server when submitted.
+Validate passwords and check password strengths with custom parameters.
 
 <h1>Install</h1>
 <pre>
@@ -196,7 +196,7 @@ npm install simple-password-strength-checker --save
         </tr>
     </tbody>
 </table>
-
+<br/><br/>
 ```javascript
 const config = {
     banned: {
@@ -255,7 +255,7 @@ const config = {
 
 const type = 'validate'
 
-passwordStrengthChecker('MyPassword', type, config)
+spsc('MyPassword', type, config)
 ```
 
 <h1>Usage</h1>
@@ -295,9 +295,9 @@ const config = {
     }
 }
 
-passwordStrengthChecker('MyPassword', 'validate', config) // return { status: 'error', msg: 'Password must be at least 8 characters long' }
+spsc('MyPassword', 'validate', config) // return { status: 'error', msg: 'Password must be at least 8 characters long' }
 
-passwordStrengthChecker('MyPass', 'strength', config) // return 0.6
+spsc('MyPass', 'strength', config) // return 0.6
 
 ```
 
@@ -306,7 +306,7 @@ passwordStrengthChecker('MyPass', 'strength', config) // return 0.6
 <h3>validate</h3>
 
 ```javascript
-passwordStrengthChecker('MyPassword', 'validate', config)
+spsc('MyPassword', 'validate', config)
 
 //success
 {
@@ -324,7 +324,7 @@ passwordStrengthChecker('MyPassword', 'validate', config)
 <div>Value will be between <code>0</code> and <code>1</code> (0 = weak, 1 = strong). You can add custom password strengths based on the users key press.</div>
 
 ```javascript
-const res = passwordStrengthChecker('MyPassword', 'strength', config)
+const res = spsc('MyPassword', 'strength', config)
 
 if(res <= .5){
     return 'Weak password'

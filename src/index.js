@@ -3,7 +3,7 @@
 const strength = require('./strength.js');
 const validate = require('./validate.js')
 
-module.exports = function passwordStrengthChecker(password, type = 'validate', options) {
+module.exports = function spsc(password, type = 'validate', options) {
 
     let defaultOptions = {
         banned: {

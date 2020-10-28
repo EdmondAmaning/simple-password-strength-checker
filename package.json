@@ -1,7 +1,7 @@
 {
   "name": "simple-password-strength-checker",
-  "version": "0.0.2",
-  "description": "A simple way to customise pre check for passwords client or server side. Passwords strength can be check whilst typing and passwords can be validated before being sent to the server or on the server when submitted.",
+  "version": "0.0.3",
+  "description": "Validate passwords and check password strengths with custom parameters.",
   "main": "index.js",
   "publishConfig": {
     "access": "public"
