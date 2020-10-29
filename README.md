@@ -10,7 +10,7 @@ npm install simple-password-strength-checker --save
 <h1>Config</h1>
 
 <h3>Type</h3>
-<code>validate</code><br/>validate is used to check the password, size, lower case, upper case, number and symbol count.  It is also used to check the passwords data type. This is the deafault.
+<code>validate</code><br/>validate is used to check the password, size, lower case, upper case, number and symbol count.  It is also used to check the passwords data type. This is the default.
 <br/><br/>
 <code>strength</code><br/>strength is used to check the quality of the password returning a number between 0 (poor) and 1 (good).
 
@@ -382,7 +382,7 @@ if(validate.status === 'error'){
     return
 }
 
-var strength = spec(password, 'strength', config)
+var strength = spsc(password, 'strength', config)
 
 console.log(strength) // 0.5
 
